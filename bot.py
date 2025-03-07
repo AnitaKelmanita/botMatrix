@@ -15,9 +15,9 @@ ROOM_MESSAGES = {
     # "!TvIFvXtrdTDFyaByFd:matrix.org": ("11:00", "Good morning! Please call all your Appointments and update comments, and if you have Hot traffic - open Call everyday filter and call from there "),  # PL
     # "!aAwTPgNEMgYwtFlkvv:matrix.org": ("11:00", "Доброе утро, обновите комментарии на Appointment "),  # RU    
     # "!SYNwohtdvpFkrntNoz:matrix.org": ("11:00", "Доброе утро, обновите комментарии на Appointment "),  # OUTSOURCE    
-    # "!wFqTIrwJqxJcCQuagM:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # ESP
-    # "!qBBbiNQAqkOOVqpQpl:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # ENG
-    # "!TvIFvXtrdTDFyaByFd:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # PL
+    "!wFqTIrwJqxJcCQuagM:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # ESP
+    "!qBBbiNQAqkOOVqpQpl:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # ENG
+    "!TvIFvXtrdTDFyaByFd:matrix.org": ("14:00", "Please call Hot traffic if you have n/ And update Appointments"),  # PL
     "!wFqTIrwJqxJcCQuagM:matrix.org": ("19:30", "reminding to send your talk time"),  # ESP
     "!qBBbiNQAqkOOVqpQpl:matrix.org": ("19:30", "reminding to send your talk time"),  # ENG
     "!TvIFvXtrdTDFyaByFd:matrix.org": ("19:30", "reminding to send your talk time"),  # PL
