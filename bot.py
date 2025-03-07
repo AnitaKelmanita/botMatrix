@@ -18,7 +18,7 @@ ROOM_MESSAGES = {
     "!qBBbiNQAqkOOVqpQpl:matrix.org": ("19:30", "reminding to send your talk time"),  # ENG
     "!TvIFvXtrdTDFyaByFd:matrix.org": ("19:30", "reminding to send your talk time"),  # PL
     "!aAwTPgNEMgYwtFlkvv:matrix.org": ("19:30", "напоминаю отправить разговорное"),  # RU    
-    "!SYNwohtdvpFkrntNoz:matrix.org": ("19:30", "напоминаю отправить разговорное")  # OUTSOURCE
+    "!SYNwohtdvpFkrntNoz:matrix.org": ("19:30", "напоминаю отправить разговорное")  # OUTSOURCE  
 }
 
 class MatrixBot(AsyncClient):
@@ -34,38 +34,23 @@ class MatrixBot(AsyncClient):
             else:
                 print(f"❌ Ошибка при авторизации: {response}")
                 return
-
-            # Запускаем синхронизацию и авто-рассылку сообщений
+            
             asyncio.create_task(self.send_auto_messages())
             print("🔄 Запуск синхронизации...")
-            await self.sync_forever(timeout=30000)
+            await self.sync_forever_with_logging(timeout=30000)
 
         except Exception as e:
             print(f"❌ Ошибка при запуске бота: {e}")
 
-    async def sync_forever(self, timeout=30000):
-        """Перепишем sync_forever с логированием для отладки."""
-        while True:
-            try:
+    async def sync_forever_with_logging(self, timeout):
+        try:
+            while True:
                 response = await self.sync(timeout=timeout)
-
-                # Логирование ответа сервера для отладки
                 print(f"📝 Ответ от сервера: {response}")
-
-                if not isinstance(response, dict):
-                    print(f"❌ Ошибка синхронизации: ответ не является словарем. Ответ: {response}")
-                    continue
-
-                # Проверяем наличие 'next_batch' в ответе
-                if 'next_batch' not in response:
-                    print("❌ Ошибка: отсутствует 'next_batch' в ответе.")
-                    continue
-                else:
-                    print("✅ Синхронизация прошла успешно.")
-            except Exception as e:
-                print(f"❌ Ошибка при синхронизации: {e}")
-            
-            await asyncio.sleep(5)  # Пауза между попытками синхронизации
+                # Логируем полный ответ сервера для отладки
+        except Exception as e:
+            print(f"❌ Ошибка синхронизации: {e}")
+            await asyncio.sleep(5)  # Задержка перед повторной попыткой
 
     async def send_auto_messages(self):
         print("📢 Запущена авто-рассылка сообщений.")
