@@ -48,6 +48,10 @@ class MatrixBot(AsyncClient):
         while True:
             try:
                 response = await self.sync(timeout=timeout)
+
+                # Логирование ответа сервера для отладки
+                print(f"📝 Ответ от сервера: {response}")
+
                 if not isinstance(response, dict):
                     print(f"❌ Ошибка синхронизации: ответ не является словарем. Ответ: {response}")
                     continue
